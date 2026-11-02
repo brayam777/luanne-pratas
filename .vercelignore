@@ -1,0 +1,10 @@
+# Nunca subir pro deploy público:
+SUPABASE_CREDENTIALS.local
+*.local
+.env*
+supabase
+serve.cjs
+tests/
+.claude/
+CLAUDE.md
+README.md

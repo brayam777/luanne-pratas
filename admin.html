@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Luanne — Painel</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="img/logo-icon.png" type="image/png" />
+<link rel="apple-touch-icon" href="img/logo-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Luanne Painel" />
+<meta name="theme-color" content="#1c3a54" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Alex+Brush&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="img/logo-icon.png" alt="" class="brand-mark" />
+      <span class="brand-text">
+        <span class="brand-name">LUANNE</span>
+        <span class="brand-sub">área do lojista</span>
+      </span>
+    </a>
+    <a href="index.html" class="btn btn-outline btn-sm">Ver site</a>
+  </div>
+</header>
+
+<main class="container admin-main">
+
+  <section id="loginView" class="admin-card" hidden>
+    <h1 class="section-title admin-title">Entrar</h1>
+    <p class="admin-sub">Digite a senha do painel.</p>
+    <form id="loginForm" class="admin-form">
+      <input type="password" id="loginPassword" placeholder="Senha" required />
+      <button type="submit" class="btn btn-whatsapp">Entrar</button>
+    </form>
+    <p id="loginMessage" class="admin-message"></p>
+  </section>
+
+  <section id="panelView" class="admin-panel" hidden>
+    <div class="admin-panel-header">
+      <div>
+        <h1 class="section-title admin-title">Gerenciar catálogo</h1>
+        <p id="sessionInfo" class="admin-sub"></p>
+      </div>
+      <button id="logoutBtn" class="btn btn-outline btn-sm">Sair</button>
+    </div>
+
+    <p id="panelMessage" class="admin-message"></p>
+
+    <div class="admin-card">
+      <h2 class="admin-card-title">Fotos de destaque (topo do site)</h2>
+      <p class="admin-sub">Até 3 fotos que aparecem em destaque assim que a página abre. Toque numa foto pra trocar.</p>
+      <div class="hero-photo-slots">
+        <label class="hero-photo-slot">
+          <div class="hero-photo-slot-preview" id="heroPreview1"></div>
+          <span>Foto 1</span>
+          <input type="file" id="heroPhotoInput1" accept="image/*" hidden />
+        </label>
+        <label class="hero-photo-slot">
+          <div class="hero-photo-slot-preview" id="heroPreview2"></div>
+          <span>Foto 2</span>
+          <input type="file" id="heroPhotoInput2" accept="image/*" hidden />
+        </label>
+        <label class="hero-photo-slot">
+          <div class="hero-photo-slot-preview" id="heroPreview3"></div>
+          <span>Foto 3</span>
+          <input type="file" id="heroPhotoInput3" accept="image/*" hidden />
+        </label>
+      </div>
+      <p id="heroPhotoMessage" class="admin-message"></p>
+    </div>
+
+    <div class="admin-card">
+      <h2 class="admin-card-title" id="productFormTitle">Adicionar peça</h2>
+      <form id="productForm" class="admin-form product-form">
+        <input type="hidden" id="editingProductId" value="" />
+        <input type="text" id="productName" placeholder="Nome da peça" required />
+        <select id="productCategory" required>
+          <option value="" disabled selected>Categoria</option>
+          <option value="Colares">Colares</option>
+          <option value="Brincos">Brincos</option>
+          <option value="Pulseiras">Pulseiras</option>
+          <option value="Pingentes">Pingentes</option>
+          <option value="Berloques">Berloques</option>
+          <option value="Anéis">Anéis</option>
+          <option value="Tornozeleiras">Tornozeleiras</option>
+          <option value="Infantil">Infantil</option>
+          <option value="Piercing">Piercing</option>
+          <option value="Triozinho">Triozinho</option>
+          <option value="Conjunto">Conjunto</option>
+        </select>
+        <select id="productGender" required>
+          <option value="" disabled selected>Gênero</option>
+          <option value="feminino">Feminino</option>
+          <option value="masculino">Masculino</option>
+        </select>
+        <input type="text" id="productSize" placeholder="Tamanho (ex: 18)" />
+        <input type="number" id="productPrice" placeholder="Preço (R$)" step="0.01" min="0" required />
+        <input type="file" id="productPhoto" accept="image/*" />
+        <p id="currentPhotoHint" class="admin-hint" hidden>Deixe em branco pra manter a foto atual.</p>
+        <div class="product-form-actions">
+          <button type="submit" class="btn btn-whatsapp" id="productFormSubmit">Adicionar</button>
+          <button type="button" class="btn btn-outline btn-sm" id="cancelEditBtn" hidden>Cancelar edição</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="admin-card">
+      <h2 class="admin-card-title">Peças cadastradas</h2>
+      <p class="admin-sub">Toque numa peça pra editar.</p>
+      <div id="productList" class="admin-list"></div>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
