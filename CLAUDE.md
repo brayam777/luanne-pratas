@@ -63,7 +63,7 @@ O servidor recusa `DeleteObjects` em lote do AWS SDK atual (exige Content-MD5) �
 
 ## Deploy
 
-Push na `main` do GitHub → a Vercel publica em produção sozinha (repositório conectado com `vercel git connect` em 2026-11-02; antes disso o deploy era manual com `vercel deploy --prod --scope brayam-s-projects`, que ainda funciona em emergência — às vezes falha uma vez com "Not authorized", é só repetir). Confira com `npx vercel ls luanne-pratas --scope brayam-s-projects`. O `.vercelignore` impede que `tests/`, `supabase/`, `CLAUDE.md`, `README.md`, `serve.cjs`, `.claude/` e qualquer `*.local`/`.env*` vão pro site.
+Push na `main` do GitHub → a Vercel publica em produção sozinha (repositório conectado com `vercel git connect` em 2026-11-02; antes disso o deploy era manual com `vercel deploy --prod --scope brayam-s-projects`, que ainda funciona em emergência — às vezes falha uma vez com "Not authorized", é só repetir). Confira com `npx vercel ls luanne-pratas --scope brayam-s-projects`. (O `vercel link` acrescenta `.vercel` e `.env*` no fim do `.gitignore`; é redundante e inofensivo.) O `.vercelignore` impede que `tests/`, `supabase/`, `CLAUDE.md`, `README.md`, `serve.cjs`, `.claude/` e qualquer `*.local`/`.env*` vão pro site.
 
 ## Pendências
 
